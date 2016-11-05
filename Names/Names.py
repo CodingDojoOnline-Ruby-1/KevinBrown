@@ -84,7 +84,7 @@ for userType, user in users.items():
         # print person['first_name']
         # thisFirstName = users[user['first_name']]
         count = len(person['first_name'])+len(person['last_name'])
-        print personNumber, "-", person['first_name'], person['last_name'], "-", count
+        print personNumber, "-", person['first_name'].upper(), person['last_name'].upper(), "-", count
 
 
 # ================ End of Part Two =======================
