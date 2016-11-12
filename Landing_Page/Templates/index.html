@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Landing Page For Ninjas Website</title>
+        <link rel="stylesheet" href="static/CSS/stylingNinjasWebsite.css">
+        <script>
+            function homePage(){
+                window.open("/index.html");
+            }
+            function aboutNinjas{
+                window.open("/ninjas/ninjas.html");
+            }
+            function dojoApplication{
+                window.open("/dojos/new/dojos.html");
+            }
+        </script>
+    </head>
+    <body>
+        <div class="wrapper">
+            <div class="buttonBlock">
+                <form>
+                    <button type="submit" formaction="/" formmethod="get" name="NinjasPageLink">Ninjas Landing Page</button>
+                    <button type="submit" formaction="/ninjas" formmethod="get" name="NinjasPageLink">Ninja Info</button>
+                    <button type="submit" formaction="/dojos/new" formmethod="get" name="DojosPageLink">Dojo Application</button>
+                </form>
+
+            </div>
+            <h1> Hello and Welcome to Ninjas Website! </h1>
+        </div>
+    </body>
+</html>
