@@ -1,0 +1,39 @@
+
+body{
+    font-family: arial;
+    color: gold;
+    background-color: black;
+}
+
+.wrapper{
+    width: 950px;
+    height: 970px;
+    padding: 20px;
+
+}
+    .buttonBlock{
+        width: 700px;
+        height: auto;
+        align-self: center;
+        margin-left: 120px;
+
+    }
+    .wrapper h1 {
+        font-size: 200%;
+        font-weight: bold;
+        text-align: center;
+
+    }
+    .wrapper button {
+        margin: 15px;
+        height: 40px;
+        width: 200px;
+        color: gold;
+        font-size: 14px;
+        font-weight: bold;
+        background-color: black;
+        border: 2px solid gold;
+        border-radius: .5em;
+        display: inline-block;
+
+    }
