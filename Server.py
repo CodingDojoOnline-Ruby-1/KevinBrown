@@ -1,17 +1,23 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, request, redirect, session
 
 app = Flask(__name__)
 
-@app.route('/')
+ninjaInfo = {'name':"",
+    'dojoLocation':"",
+    'programmingLanguage':"",
+    'ninjaComment':"",
+}
+
+app.secret_key = "kavic84nses09bc03ncdald"
+
+@app.route('/', methods=['GET', 'POST'])
 def index():
+    session['ninjaInfo'] = 'ninjaInfo'
     return render_template('index.html')
 
-@app.route('/ninjas')
-def ninjas():
-    return render_template('ninjas.html')
+@app.route('/result', methods=['POST'])
+def result():
+    ninjaInfo = session.POST('ninjaInfo')
+    return render_template('result.html')
 
-@app.route('/dojos/new')
-def new_dojo():
-    return render_template('dojos.html')
-
-app.run(debug=True)
+app.run(debug = True)
