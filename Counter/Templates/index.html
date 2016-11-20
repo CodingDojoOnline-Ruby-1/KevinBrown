@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Counter</title>
+        <link rel="stylesheet" href="static/CSS/stylesheet.css">
+    </head>
+    <body>
+        <div id="wrapper">
+            <h2>The page has been loaded {{ session['counter'] }} times.</h2>
+            <div id="buttonBox">
+                <p>
+                    <form>
+                        <button type="submit" formaction="/" name="reload">Reload</button>
+                        <button type="submit" formaction="/ninja" name="ninja">Ninja</button>
+                        <button type="submit" formaction="/hacker" name="hacker">Hacker</button>
+                    </form>
+                </p>
+            </div>
+        </div>
+    </body>
+</html>
