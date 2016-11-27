@@ -1,56 +1,54 @@
 from flask import Flask, render_template, request, redirect, session
-import random
+import random, datetime
+
 app = Flask(__name__)
 
 app.secret_key = "kavic84nses09bc03ncdald"
+
+def ninjaTime():
+    return(datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S"))
 
 @app.route('/')
 def index():
     if not session.get('activities'):
         session['gold'] = 0
-        print (str(session['gold']) +"<==========================")
         session['activities'] = []
     return render_template('index.html')
 
-@app.route('/farmGold', methods = ['POST'])
-def farmGold():
-    newGold = random.randrange(10, 21)
-    activity = "Worked on a farm and earned "+ str(newGold) +" gold."
-    session['gold'] = session['gold'] + newGold
-    session['activities'].insert(0, activity)
-    return redirect('/')
+@app.route('/process_money', methods = ['POST'])
+def processMoney():
+    # ================ Farm ===================
+    if request.form['building'] == 'farm':
+        newGold = random.randrange(10, 21)
+        activity = "Worked on a farm and earned "+ str(newGold) +" gold. -- " + ninjaTime()
 
-@app.route('/caveGold', methods = ['POST'])
-def caveGold():
-    newGold = random.randrange(5, 11)
-    activity = "Explored a cave and found "+ str(newGold) +" gold."
-    session['gold'] = session['gold'] + newGold
-    session['activities'].insert(0, activity)
-    return redirect('/')
+    # ================ Cave ===================
+    elif request.form['building'] == 'cave':
+        newGold = random.randrange(5, 11)
+        activity = "Explored a cave and found "+ str(newGold) +" gold. -- " + ninjaTime()
 
-@app.route('/houseGold', methods = ['POST'])
-def houseGold():
-    newGold = random.randrange(2, 6)
-    activity = "Robbed a house and stole "+ str(newGold) +" gold."
-    session['gold'] = session['gold'] + newGold
-    session['activities'].insert(0, activity)
-    return redirect('/')
+    # ================ House ===================
+    elif request.form['building'] == 'house':
+        newGold = random.randrange(2, 6)
+        activity = "Robbed a house and stole "+ str(newGold) +" gold. -- " + ninjaTime()
 
-@app.route('/casinoGold', methods = ['POST'])
-def casinoGold():
-    newGold = random.randrange(0, 53)
-
-    if newGold == 0:
-        newGold = ((session['gold']) * (-1))
-        activity = "Went to a casino and lost all my gold."
-    elif newGold == 51:
-        newGold = session['gold']
-        activity = "Went to a casino doubled my gold."
-    elif newGold == 52:
-        newGold = ((session['gold']) * (2))
-        activity = "Went to a casino tripled my gold."
+    # ================ Casino ===================
+    elif session['gold'] == 0:
+            newGold = 0
+            activity = "Kicked out of Casino for not having any gold. -- " + ninjaTime()
     else:
-        activity = "Went to a casino and won "+ str(newGold) +" gold."
+        newGold = random.randrange(0, 53)
+        if newGold == 0:
+            newGold = ((session['gold']) * (-1))
+            activity = "Went to a casino and lost all my gold. -- " + ninjaTime()
+        elif newGold == 51:
+            newGold = session['gold']
+            activity = "Went to a casino doubled my gold. -- " + ninjaTime()
+        elif newGold == 52:
+            newGold = ((session['gold']) * (2))
+            activity = "Went to a casino tripled my gold. -- " + ninjaTime()
+        else:
+            activity = "Went to a casino and won "+ str(newGold) +" gold. --" + ninjaTime()
 
     session['gold'] = session['gold'] + newGold
     session['activities'].insert(0, activity)

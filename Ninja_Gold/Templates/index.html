@@ -10,26 +10,30 @@
             <h4>Your Gold: {{session['gold']}}</h4><br>
             <div class="locationBox">
                 <p>Farm</p>
-                <form class="inputForm" method="post">
-                    <input type="submit" value="Find Gold" formaction="/farmGold">
+                <form action="/process_money" method="post">
+                    <input type="hidden" name="building" value="farm" />
+                    <input type="submit" value="Find Gold">
                 </form>
             </div>
             <div class="locationBox">
                 <p>Cave</p>
-                <form class="inputForm" method="post">
-                    <input type="submit" value="Find Gold" formaction="/caveGold">
+                <form action="/process_money" method="post">
+                    <input type="hidden" name="building" value="cave" />
+                    <input type="submit" value="Find Gold">
                 </form>
             </div>
             <div class="locationBox">
                 <p>House</p>
-                <form class="inputForm" method="post">
-                    <input type="submit" value="Find Gold" formaction="/houseGold">
+                <form action="/process_money" method="post">
+                    <input type="hidden" name="building" value="house" />
+                    <input type="submit" value="Find Gold">
                 </form>
             </div>
             <div class="locationBox">
                 <p>Casino</p>
-                <form class="inputForm" method="post">
-                    <input type="submit" value="Find Gold" formaction="/casinoGold">
+                <form action="/process_money" method="post">
+                    <input type="hidden" name="building" value="casino" />
+                    <input type="submit" value="Find Gold">
                 </form>
             </div>
             <h4>Activities:</h4>

@@ -38,7 +38,8 @@ body{
 
     .activitiesBox{
         width: 940px;
-        height: 500px;
+        height: 400px;
         background-color: white;
         color: black;
+        overflow: scroll;
     }
