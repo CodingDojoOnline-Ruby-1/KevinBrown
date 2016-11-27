@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Ninja Gold</title>
+        <link rel="stylesheet" href="static/CSS/stylesheet.css">
+    </head>
+    <body>
+        <div id="wrapper">
+            <h4>Your Gold: {{session['gold']}}</h4><br>
+            <div class="locationBox">
+                <p>Farm</p>
+                <form class="inputForm" method="post">
+                    <input type="submit" value="Find Gold" formaction="/farmGold">
+                </form>
+            </div>
+            <div class="locationBox">
+                <p>Cave</p>
+                <form class="inputForm" method="post">
+                    <input type="submit" value="Find Gold" formaction="/caveGold">
+                </form>
+            </div>
+            <div class="locationBox">
+                <p>House</p>
+                <form class="inputForm" method="post">
+                    <input type="submit" value="Find Gold" formaction="/houseGold">
+                </form>
+            </div>
+            <div class="locationBox">
+                <p>Casino</p>
+                <form class="inputForm" method="post">
+                    <input type="submit" value="Find Gold" formaction="/casinoGold">
+                </form>
+            </div>
+            <h4>Activities:</h4>
+            <div class="activitiesBox">
+                <ul>
+                    {% for activity in activities %}
+                        <li>{{activity}}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+    </body>
+</html>
