@@ -3,8 +3,20 @@
     <head>
         <meta charset="utf-8">
         <title>Time Display</title>
+        {% load staticfiles %}
+        <link rel="stylesheet" href="{% static 'css/stylesheet.css' %}">
     </head>
     <body>
-        <h1>Here is Where the Time Goes</h1>
+        <div id="wrapper">
+            <div id="dataBox">
+                <div class="miniHeaderInfo">
+                    <h5>The current time and date:</h5>
+                </div>
+                <br>
+                <div class="dataInfo">
+                    <h1>{{ currentTime }}</h1>
+                </div>
+            </div>
+        </div>
     </body>
 </html>

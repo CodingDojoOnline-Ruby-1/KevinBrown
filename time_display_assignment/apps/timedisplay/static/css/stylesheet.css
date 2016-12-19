@@ -1,0 +1,57 @@
+
+body{
+    font-family: arial;
+
+}
+
+#wrapper{
+    width: 900px;
+    height: 970px;
+    padding: 50px;
+    background-color: blue;
+
+}
+
+
+
+#dataBox{
+    width: 800px;
+    height: 870px;
+    padding: 40px;
+    margin: 0px;
+    color: lime;
+    background-color: black;
+    text-align: center;
+    align-self: center;
+}
+    #dataBox h1 {
+        margin: 0px;
+        text-align: center;
+    }
+    #dataBox h5 {
+        margin: 0px;
+        text-align: center;
+    }
+
+    .miniHeaderInfo {
+        border: 1px solid lime;
+        height: auto;
+        width: 200px;
+        padding: 5px;
+        align-self: center;
+        text-align: center;
+        margin-left: auto;
+        margin-right: auto;
+        background-color: black;
+
+    }
+
+    .dataInfo {
+        border: 1px solid lime;
+        height: auto;
+        width: 300px;
+        align-self: center;
+        margin-left: auto;
+        margin-right: auto;
+        background-color: black;
+    }

@@ -1,6 +1,9 @@
 from django.shortcuts import render, HttpResponse
-def yourMethodFromUrls(request):
-    context = {
-    "somekey":"somevalue"
-    }
-    return render(request,'appname/page.html', context)
+import datetime
+
+
+def index(request):
+    # currentTime = datetime.datetime.now()
+    #currentDateTime = ("%s/%s/%s" % (currentTime.day, currentTime.month, currentTime.year)) + (" %s:%s:%s" % (currentTime.hour, currentTime.month, currentTime.second))
+    #context={ "currentDateTime":currentDateTime }
+    return render(request, 'timedisplay/index.html', context)
