@@ -5,9 +5,9 @@ body{
 }
 
 #wrapper{
-    width: 900px;
-    height: 970px;
-    padding: 50px;
+    width: 800px;
+    height: 640px;
+    padding: 20px;
     background-color: blue;
 
 }
@@ -15,8 +15,8 @@ body{
 
 
 #dataBox{
-    width: 800px;
-    height: 870px;
+    width: auto;
+    height: 560px;
     padding: 40px;
     margin: 0px;
     color: lime;
