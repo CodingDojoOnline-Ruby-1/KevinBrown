@@ -1,7 +1,6 @@
 from django.shortcuts import render, HttpResponse
-import pytz
+import pytz, datetime
 from django.utils import timezone
-import datetime, time
 
 def index(request):
     currentDateTime = datetime.datetime.utcnow()
