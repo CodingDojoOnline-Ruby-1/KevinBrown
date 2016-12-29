@@ -25,10 +25,7 @@ def generateRandomWord():
     return(word)
 
 def index(request):
-    print (request.POST)
-    #if request.method == 'GET':
     counter = 1
-
     if request.method == 'POST':
         counter = int(request.POST['counter'])+1
 
