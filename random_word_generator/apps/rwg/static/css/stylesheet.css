@@ -12,57 +12,47 @@ body{
 
 }
 
-
-
-#dataBox{
-    width: auto;
-    height: 560px;
-    padding: 40px;
-    margin: 0px;
-    color: lime;
-    background-color: black;
-    text-align: center;
-    align-self: center;
-}
-    /*#dataBox h1 {
+    #dataBox{
+        width: auto;
+        height: 560px;
+        padding: 40px;
         margin: 0px;
-        text-align: center;
-    }
-    #dataBox h5 {
-        margin: 0px;
-        text-align: center;
-    }*/
-    #dataBox input {
-    text-align: center;
-    text-decoration: none;
-    background-color: black;
-    color: lime;
-    border: 1px solid lime;
-    border-radius: .5em;
-    display: inline-block;
-    box-shadow: blue
-}
-
-    .miniHeaderInfo {
-        /*border: 1px solid lime;*/
-        height: auto;
-        width: 200px;
-        padding: 5px;
-        font-weight: 200;
-        align-self: center;
-        text-align: center;
-        margin: 5px auto;
-        /*margin-left: auto;
-        margin-right: auto;*/
+        color: lime;
         background-color: black;
+        text-align: center;
+        align-self: center;
     }
-
-    .dataInfo {
+        #dataBox input {
+        text-align: center;
+        text-decoration: none;
+        background-color: black;
+        color: lime;
         border: 1px solid lime;
-        height: auto;
-        width: 300px;
-        font-weight: 200;
-        align-self: center;
-        margin: 5px auto;
-        background-color: black;
+        border-radius: .5em;
+        display: inline-block;
+        box-shadow: blue
     }
+
+        .miniHeaderInfo {
+            /*border: 1px solid lime;*/
+            height: auto;
+            width: 200px;
+            padding: 5px;
+            font-weight: 200;
+            align-self: center;
+            text-align: center;
+            margin: 5px auto;
+            /*margin-left: auto;
+            margin-right: auto;*/
+            background-color: black;
+        }
+
+        .dataInfo {
+            border: 1px solid lime;
+            height: auto;
+            width: 300px;
+            font-weight: 200;
+            align-self: center;
+            margin: 5px auto;
+            background-color: black;
+        }
