@@ -6,12 +6,11 @@ body{
     width: 800px;
     height: 600px;
     padding: 20px;
-    color: black;
     background-color: blue;
 
 }
 #dataBox{
-    width: 720px;
+    width: auto;
     height: 520px;
     padding: 40px;
     color: lime;
@@ -29,48 +28,139 @@ body{
         color: lime;
         font-size: 12px;
         font-weight: bold;
-        background-color: black;
-        border: 2px solid lime;
+        background-color: #24272E;
+        border: 1px solid blue;
         border-radius: .5em;
         float: right;
     }
 
-    .thankYouBlock
+    .thankYouBoxIndex{
+        width: auto;
+        text-align: center;
+        height: 40px;
+        padding: 20px;
+        font-size: 12px;
+        font-weight: normal;
+        color: black;
+        background-color: black;
+        border: 1px solid black ;
+    }
+
+    .thankYouBoxResult{
+        width: auto;
+        vertical-align: middle;
+        text-align: center;
+        padding 0px;
+        height: 40px;
+        padding: 20px;
+        font-size: 12px;
+        font-weight: normal;
+        border-radius: .5em;
+        color: lime;
+        background-color: indigo;
+        border: 1px solid blue;
+    }
+        .thankYouBoxResult p{
+            margin: 0px;
+        }
 
 
     .formBlock{
-        height: 20px;
-        width: 400px;
+        height: 22px;
+        width: auto;
         padding: 0px;
+        background-color: black;
     }
-        .formBlock h4 {
+        .formBlock h1, h4 {
             display: inline-block;
-            vertical-align: top;
+            vertical-align: middle;;
+            font-weight: lighter;;
             margin: 0px;
-
         }
-        .formBlock select, input {
+        .formBlock input {
             float: right;
             text-align: left;
+            vertical-align: middle;;
+            width: 100px;
+            height: 22px;
+            display: inline-block;
+            margin: 0px;
+            padding: 0px 10px;
+            border-radius: .5em;
+            color: lime;
+            border: 1px solid blue;
+            background-color: #24272E;
+        }
+        .formBlock select {
+            float: : right;
+            text-align: center;
+            vertical-align: middle;;
+            width: 120px;
+            height: 22px;
+            display: inline-block;
+            margin: 0px;
+            padding: 0px;
+            color: lime;
+            border: 1px solid blue;
+            background-color: #24272E;
+        }
+        .dataOut {
+            display: inline-block;
+            vertical-align: top;
+            float: right;
+            margin: 0px;
+            text-align: right;
+            outline: 1px solid blue;
+        }
+        .formBlock div {
+            float: right;
+            text-align: center;
             vertical-align: top;
             width: 120px;
             height: 20px;
             display: inline-block;
             margin: 0px;
             padding: 0px;
+            color: lime;
             border: 1px solid blue;
-            background-color: black;
+            background-color: #24272E;
         }
-        .dataOut {
-            display: inline-block;
+        .formBlockInputOutput {
+            float: right;
+            text-align: left;
             vertical-align: top;
+            border-radius: .3em;
+            width: auto;
+            height: 20px;
+            display: inline-block;
             margin: 0px;
-            text-align: right;
+            padding: 0px;
+            color: lime;
+            border: 1px solid blue;
+            background-color: #24272E;
         }
 
     .commentBox {
-        height: 40px;
-        width: 400px;
-        background-color: black;
+        height: 80px;
+        width: 760;
+        color: lime;
+        text-align: top;
+        text-indent: 20px;
+        text-align: left;
         border: 1px solid blue;
+        border-radius: .5em;
+        background-color: #24272E;
     }
+        .commentBox input {
+            height: 80px;
+            width: auto;
+            color: lime;
+            border-radius: .5em;
+            background-color: #24272E;
+        }
+        /*.commentBox h1, h4 {
+            display: inline-block;
+            vertical-align: middle;
+            font-weight: lighter;
+            margin: 0px;
+        }*/

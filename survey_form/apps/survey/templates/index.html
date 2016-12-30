@@ -10,19 +10,20 @@
     <body>
         <div id="wrapper">
             <div id="dataBox">
-                <div class="thankYouBox">
-                    <p>Thanks for submitting this form!</p>
-                    <p>You have submitted this form {{ request.session.counter }} times now.</p>
+                <div class="thankYouBoxIndex">
                 </div>
+                <h1>Input Info</h1><br>
                 <div class="inputBox">
                     <form action="result.html" method="post">
                         {% csrf_token %}
                         <div class="formBlock">
-                            <h4>Your Name: </h4><input type="text" name="ninjaName"><br>
+                            <h4>Your Name: </h4>
+                            <input type="text" name="ninjaName">
+                            <br>
                         </div><br>
                         <div class="formBlock">
                             <h4>Dojo Location:</h4>
-                            <select name="dojoLocation">
+                            <select class="formBlockInputOutput" name="dojoLocation">
                                 <option value="Dallas">Dallas</option>
                                 <option value="San Diego">San Diego</option>
                                 <option value="San Francisco">San Francisco</option>
@@ -31,7 +32,7 @@
                         </div> <br>
                         <div class="formBlock">
                             <h4>Favorite Language: </h4>
-                            <select name="programmingLanguage">
+                            <select class="formBlockInputOutput" name="programmingLanguage">
                                 <option value="Python!!">Python</option>
                                 <option value="not python">Ruby</option>
                                 <option value="not python">Cobol</option>
@@ -42,10 +43,13 @@
                                 <option value="not python">Maple</option>
                             </select>
                         </div><br>
-                        <div class="commentBlock">
-                            <h4>Comment (optional):</h4>
+                        <div class="formBlock">
+                            <h4>Comment: (optional)</h4>
+                        </div><br>
+                        <div class="commentBox">
                             <input type="text" name="ninjaComment">
-                        </div>
+                            <!-- problems with input box, height, width, text appearing -->
+                        </div><br>
                         <button type="submit" formaction="{% url 'result' %}" formmethod="post" name="submitForm">Submit</button>
                     </form>
                 </div>

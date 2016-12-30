@@ -3,6 +3,9 @@ from django import forms
 
 
 def result(request):
+    request.session.ninjaName = request.POST['ninjaName']
+    request.session.dojoLocation = request.POST['dojoLocation']
+    request.session.programmingLanguage = request.POST['programmingLanguage']
     return render(request, 'result.html')
 
 

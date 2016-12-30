@@ -2,27 +2,37 @@
 <html>
     <head>
         <meta charset="utf-8">
-        <title>Dojo Survey Result Form</title>
-        <link rel="stylesheet" href="static/CSS/stylesheet.css">
+        <title>Survey Result Form</title>
+        {% load staticfiles %}
+        <link rel="stylesheet" href="{% static 'css/stylesheet.css' %}">
+        <link rel="icon" href="{% static 'img/favicon.ico' %}">
     </head>
     <body>
         <div id="wrapper">
             <div id="dataBox">
+                <div class="thankYouBoxResult">
+                    <p>Thanks for submitting this form!</p>
+                    <p>You have submitted this form {{ request.session.counter }} times now.</p>
+                </div>
                 <h1>Submitted Info</h1><br>
                 <div class="formBlock">
-                    <h4>Your Name: </h4> <h4 class=dataOut>{{ request.session.ninjaName }}</h4>
+                    <h4>Your Name: </h4>
+                    <div class="formBlockInputOutput"><h4>{{ request.session.ninjaName }}</h4></div>
                 </div><br>
                 <div class="formBlock">
-                    <h4>Dojo Location: </h4> <h4 class=dataOut>{{ request.session.dojoLocation }}</h4>
+                    <h4>Dojo Location: </h4>
+                    <div class="formBlockInputOutput"><h4>{{ request.session.dojoLocation }}</h4></div>
                 </div><br>
                 <div class="formBlock">
-                    <h4>Favorite Language:</h4> <h4 class=dataOut>{{ request.session.programmingLanguage }}</h4>
+                    <h4>Favorite Language:</h4>
+                    <div class="formBlockInputOutput"><h4>{{ request.session.programmingLanguage }}</h4></div>
                 </div><br>
                 <div class="formBlock">
                     <h4>Comment: </h4>
                 </div><br>
                 <div class="commentBox">
                     <h4>{{ request.session.ninjaComment }}</h4>
+                    <!-- problems with input box, height, width, text appearing -->
                 </div> <br>
                 <form action="index.html" method="post">
                     {% csrf_token %}
