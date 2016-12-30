@@ -10,8 +10,7 @@
     <body>
         <div id="wrapper">
             <div id="dataBox">
-                <div class="thankYouBoxIndex">
-                </div>
+                <div class="thankYouBoxIndex"></div>
                 <h1>Input Info</h1><br>
                 <div class="inputBox">
                     <form action="result.html" method="post">
@@ -46,9 +45,8 @@
                         <div class="formBlock">
                             <h4>Comment: (optional)</h4>
                         </div><br>
-                        <div class="commentBox">
-                            <input type="text" name="ninjaComment">
-                            <!-- problems with input box, height, width, text appearing -->
+                        <div >
+                            <input type="text" name="ninjaComment" class="commentBox">
                         </div><br>
                         <button type="submit" formaction="{% url 'result' %}" formmethod="post" name="submitForm">Submit</button>
                     </form>

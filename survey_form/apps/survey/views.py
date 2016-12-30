@@ -6,6 +6,7 @@ def result(request):
     request.session.ninjaName = request.POST['ninjaName']
     request.session.dojoLocation = request.POST['dojoLocation']
     request.session.programmingLanguage = request.POST['programmingLanguage']
+    request.session.ninjaComment = request.POST['ninjaComment']
     return render(request, 'result.html')
 
 
