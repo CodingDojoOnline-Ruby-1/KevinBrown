@@ -1,0 +1,76 @@
+body{
+    font-family: arial;
+}
+
+#wrapper{
+    width: 800px;
+    height: 600px;
+    padding: 20px;
+    color: black;
+    background-color: blue;
+
+}
+#dataBox{
+    width: 720px;
+    height: 520px;
+    padding: 40px;
+    color: lime;
+    background-color: black;
+    border: 1px solid blue;
+}
+    #dataBox h1 {
+        text-decoration: underline;
+        margin: 0px;
+    }
+    #dataBox button {
+        margin: 15px;
+        height: 30px;
+        width: 80px;
+        color: lime;
+        font-size: 12px;
+        font-weight: bold;
+        background-color: black;
+        border: 2px solid lime;
+        border-radius: .5em;
+        float: right;
+    }
+
+    .thankYouBlock
+
+
+    .formBlock{
+        height: 20px;
+        width: 400px;
+        padding: 0px;
+    }
+        .formBlock h4 {
+            display: inline-block;
+            vertical-align: top;
+            margin: 0px;
+
+        }
+        .formBlock select, input {
+            float: right;
+            text-align: left;
+            vertical-align: top;
+            width: 120px;
+            height: 20px;
+            display: inline-block;
+            margin: 0px;
+            padding: 0px;
+            border: 1px solid blue;
+            background-color: black;
+        }
+        .dataOut {
+            display: inline-block;
+            vertical-align: top;
+            margin: 0px;
+            text-align: right;
+        }
+
+    .commentBox {
+        height: 40px;
+        width: 400px;
+        background-color: black;
+        border: 1px solid blue;
+    }
