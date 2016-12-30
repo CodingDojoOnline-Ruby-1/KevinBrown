@@ -1,0 +1,53 @@
+body{
+    font-family: arial;
+}
+
+#wrapper{
+    width: 800px;
+    height: 600px;
+    padding: 20px;
+    background-color: blue;
+
+}
+#dataBox{
+    width: auto;
+    height: 520px;
+    padding: 40px;
+    color: lime;
+    background-color: black;
+    border: 1px solid blue;
+}
+    /*#dataBox h1 {
+        text-decoration: underline;
+        margin: 0px;
+    }
+    #dataBox button {
+        margin: 15px;
+        height: 30px;
+        width: 80px;
+        color: lime;
+        font-size: 12px;
+        font-weight: bold;
+        background-color: #24272E;
+        border: 1px solid blue;
+        border-radius: .5em;
+        float: right;
+    }*/
+    .borderBox {
+        width: 400px;
+        height: 400px;
+        padding: 0px;
+        margin: 0px;
+        border: 1px solid blue;
+    }
+
+    #dataBox form {
+        width: auto;
+        height: 30px;
+        color: white;
+        text-align: center;
+        
+    }
+    #dataBox button{
+        display: inline-block;
+    }

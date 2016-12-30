@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Survey Form</title>
+        {% load staticfiles %}
+        <link rel="stylesheet" href="{% static 'css/stylesheet.css' %}">
+        <link rel="icon" href="{% static 'img/favicon.ico' %}">
+    </head>
+    <body>
+        <div id="wrapper">
+            <div id="dataBox" color = "black">
+<!-- ======================================================================= -->
+                <div class="borderBox">
+                    <img src="img/notapril.jpg" />
+                </div>
+                <form class="buttonForm" action="index.html" method="post">
+                    <button type="submit" name="black" formaction="index.html"></button>
+                    <button type="submit" name="blue" formaction="blue.html"></button>
+                    <button type="submit" name="orange" formaction="orange.html"></button>
+                    <button type="submit" name="red" formaction="red.html"></button>
+                    <button type="submit" name="purple" formaction="purple.html"></button>
+                </form>
+<!-- ======================================================================= -->
+            </div>
+        </div>
+    </body>
+</html>
