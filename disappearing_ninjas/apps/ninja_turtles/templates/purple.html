@@ -2,8 +2,9 @@
 <html>
     <head>
         <meta charset="utf-8">
-        <title>Survey Form</title>
+        <title>Ninja Turtles - Purple</title>
         {% load staticfiles %}
+        {% csrf_token %}
         <link rel="stylesheet" href="{% static 'css/stylesheet.css' %}">
         <link rel="icon" href="{% static 'img/favicon.ico' %}">
     </head>
@@ -12,16 +13,16 @@
             <div id="dataBox" color = "purple">
 <!-- ======================================================================= -->
                 <form class="buttonForm" action="index.html" method="post">
-                    <button type="submit" name="black" action="{% url 'index.html' %}" background-color="black">Index</button>
-                    <button type="submit" name="blue" action="{% url 'blue.html' %}" color=blue>Blue</button>
-                    <button type="submit" name="orange" formaction="{% url 'orange.html' %}" buttonface=orange>Orange</button>
-                    <button type="submit" name="red" formaction="{% url 'red.html' %}"  background-color=red>Red</button>
-                    <button type="submit" name="purple" formaction="{% url 'purple.html' %}"  background-color="purple">Purple</button>
+                    {% csrf_token %}
+                    <button type="submit" name="black" formaction="{% url 'index' %}" style= "background-color:black">Index</button>
+                    <button type="submit" name="blue" formaction="{% url 'ninjas' color='blue' %}" style= "background-color:blue">Blue</button>
+                    <button type="submit" name="orange" formaction="{% url 'ninjas' color='orange' %}" style= "background-color:orange">Orange</button>
+                    <button type="submit" name="red" formaction="{% url 'ninjas' color='red' %}" style= "background-color:red">Red</button>
+                    <button type="submit" name="purple" formaction="{% url 'ninjas' color='purple' %}" style= "background-color:purple">Purple</button>
                 </form>
 
-                <!-- <div class="borderBox"> -->
-                    <img src="{% static 'img/notapril.jpg' %}" />
-                <!-- </div> -->
+                <img src="{% static 'img/donatello.jpg' %}" />
+
 <!-- ======================================================================= -->
             </div>
         </div>

@@ -1,9 +1,9 @@
 from django.shortcuts import render
 
 # Create your views here.
-def ninjas(request,color):
+def ninjas(request, color):
     if color not in('blue', 'orange', 'red', 'purple'):
-        return render(request, 'april.html')
+        return render(request, 'route_fail.html')
     htmlfile = color+'.html'
     return render(request, htmlfile)
 

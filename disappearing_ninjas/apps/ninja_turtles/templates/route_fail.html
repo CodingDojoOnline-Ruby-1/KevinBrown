@@ -2,7 +2,7 @@
 <html>
     <head>
         <meta charset="utf-8">
-        <title>Ninja Turtles - Red</title>
+        <title>Ninja Turtles - Route Fail</title>
         {% load staticfiles %}
         {% csrf_token %}
         <link rel="stylesheet" href="{% static 'css/stylesheet.css' %}">
@@ -10,18 +10,18 @@
     </head>
     <body>
         <div id="wrapper">
-            <div id="dataBox" color = "red">
+            <div id="dataBox" color = "black">
 <!-- ======================================================================= -->
                 <form class="buttonForm" action="index.html" method="post">
                     {% csrf_token %}
                     <button type="submit" name="black" formaction="{% url 'index' %}" style= "background-color:black">Index</button>
                     <button type="submit" name="blue" formaction="{% url 'ninjas' color='blue' %}" style= "background-color:blue">Blue</button>
-                    <button type="submit" name="orange" formaction="{% url 'ninjas' color='orange' %}" style= "background-color:orange">Orange</button>
-                    <button type="submit" name="red" formaction="{% url 'ninjas' color='red' %}" style= "background-color:red">Red</button>
-                    <button type="submit" name="purple" formaction="{% url 'ninjas' color='purple' %}" style= "background-color:purple">Purple</button>
+                    <button type="submit" name="orange" formaction="{% url 'ninjas' color='orange'%}" style= "background-color:orange">Orange</button>
+                    <button type="submit" name="red" formaction="{% url 'ninjas' color='red'%}" style= "background-color:red">Red</button>
+                    <button type="submit" name="purple" formaction="{% url 'ninjas' color='purple'%}" style= "background-color:purple">Purple</button>
                 </form>
 
-                <img src="{% static 'img/raphael.jpg' %}" />
+                <img src="{% static 'img/images-3.jpg' %}" />
 
 <!-- ======================================================================= -->
             </div>

@@ -1,14 +1,16 @@
 from django.shortcuts import render, redirect
-import random
+import random, datetime
 
 # Create your views here.
 def index(request):
-    return render(request, 'index.html')
+    if 'gold' in request.session:
+        return render(request, 'index.html', {'session':request.session})
+    else:
+        return redirect('login')
 
-
-def loggin(request):
+def login(request):
     request.session['gold'] = 0
-    request.session.activities = []
+    request.session['activities'] = []
     return redirect('index')
 
 
@@ -18,7 +20,7 @@ def ninjaTime():
 
 def process_money(request):
     building = request.POST['building']
-    gold = request.POST['gold']
+    gold = int(request.POST['gold'])
 
     # ================ Farm ===================
     if building == 'farm':
@@ -55,5 +57,5 @@ def process_money(request):
 
     # ============= Process Money ================
     request.session['gold'] = gold + newGold
-    request.session.activities.insert(0, activity)
+    request.session['activities'].insert(0, activity)
     return redirect('/')

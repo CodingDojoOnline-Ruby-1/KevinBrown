@@ -37,7 +37,7 @@ body{
     }
     #dataBox button{
         display: inline-block;
-        background-color: indigo;
+        /*background-color: indigo;*/
         margin: 15px;
         height: 30px;
         width: 80px;
