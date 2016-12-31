@@ -1,59 +1,57 @@
-from django.shortcuts import render, redirect
-import random
+from flask import Flask, render_template, request, redirect, session
+import random, datetime
 
-# Create your views here.
-def index(request):
-    return render(request, 'index.html')
+app = Flask(__name__)
 
-
-def loggin(request):
-    request.session['gold'] = 0
-    request.session.activities = []
-    return redirect('index')
-
+app.secret_key = "kavic84nses09bc03ncdald"
 
 def ninjaTime():
     return(datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S"))
 
+@app.route('/')
+def index():
+    if not session.get('activities'):
+        session['gold'] = 0
+        session['activities'] = []
+    return render_template('index.html')
 
-def process_money(request):
-    building = request.POST['building']
-    gold = request.POST['gold']
-
+@app.route('/process_money', methods = ['POST'])
+def processMoney():
     # ================ Farm ===================
-    if building == 'farm':
+    if request.form['building'] == 'farm':
         newGold = random.randrange(10, 21)
         activity = "Worked on a farm and earned "+ str(newGold) +" gold. -- " + ninjaTime()
 
     # ================ Cave ===================
-    elif building == 'cave':
+    elif request.form['building'] == 'cave':
         newGold = random.randrange(5, 11)
         activity = "Explored a cave and found "+ str(newGold) +" gold. -- " + ninjaTime()
 
     # ================ House ===================
-    elif building == 'house':
+    elif request.form['building'] == 'house':
         newGold = random.randrange(2, 6)
         activity = "Robbed a house and stole "+ str(newGold) +" gold. -- " + ninjaTime()
 
     # ================ Casino ===================
-    elif gold == 0:
+    elif session['gold'] == 0:
             newGold = 0
             activity = "Kicked out of Casino for not having any gold. -- " + ninjaTime()
     else:
         newGold = random.randrange(0, 53)
         if newGold == 0:
-            newGold = ((gold) * (-1))
+            newGold = ((session['gold']) * (-1))
             activity = "Went to a casino and lost all my gold. -- " + ninjaTime()
         elif newGold == 51:
-            newGold = gold
+            newGold = session['gold']
             activity = "Went to a casino doubled my gold. -- " + ninjaTime()
         elif newGold == 52:
-            newGold = (gold * 2)
+            newGold = ((session['gold']) * (2))
             activity = "Went to a casino tripled my gold. -- " + ninjaTime()
         else:
             activity = "Went to a casino and won "+ str(newGold) +" gold. --" + ninjaTime()
 
-    # ============= Process Money ================
-    request.session['gold'] = gold + newGold
-    request.session.activities.insert(0, activity)
+    session['gold'] = session['gold'] + newGold
+    session['activities'].insert(0, activity)
     return redirect('/')
+
+app.run(debug = True)

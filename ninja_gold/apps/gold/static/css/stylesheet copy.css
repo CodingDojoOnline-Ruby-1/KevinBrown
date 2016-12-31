@@ -1,0 +1,45 @@
+body{
+    font-family: arial;
+}
+
+#wrapper{
+    background-color: #F8FF8C;
+    width: 970px;
+    height: 900px;
+    padding: 15px;
+}
+
+    .locationBox{
+        background-color: green;
+        color: yellow;
+        padding: 40px;
+        font-size: 18px;
+        text-align: center;
+        display: inline-block;
+        border: 2px solid black;
+        height: 180px;
+        width: 180px;
+        margin: 15px;
+        padding: 10px;
+    }
+    .locationBox p{
+        margin: 40px;
+    }
+
+    .locationBox input{
+        background-color: gold;
+        color: black;
+        font-weight: bold;
+        font-size: 12px;
+        align-self: center;
+        text-align: center;
+        vertical-align: top;
+    }
+
+    .activitiesBox{
+        width: 940px;
+        height: 400px;
+        background-color: white;
+        color: black;
+        overflow: scroll;
+    }

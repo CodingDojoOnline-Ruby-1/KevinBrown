@@ -8,49 +8,48 @@
         <link rel="icon" href="{% static 'img/favicon.ico' %}">
     </head>
     <body>
+        {% csrf_token %}
         <div id="wrapper">
             <div id="dataBox">
-                <div class="thankYouBoxIndex"></div>
-                <h1>Input Info</h1><br>
-                <div class="inputBox">
-                    <form action="result.html" method="post">
-                        {% csrf_token %}
-                        <div class="formBlock">
-                            <h4>Your Name: </h4>
-                            <input type="text" name="ninjaName">
-                            <br>
-                        </div><br>
-                        <div class="formBlock">
-                            <h4>Dojo Location:</h4>
-                            <select class="formBlockInputOutput" name="dojoLocation">
-                                <option value="Dallas">Dallas</option>
-                                <option value="San Diego">San Diego</option>
-                                <option value="San Francisco">San Francisco</option>
-                                <option value="New York">New York</option>
-                            </select>
-                        </div> <br>
-                        <div class="formBlock">
-                            <h4>Favorite Language: </h4>
-                            <select class="formBlockInputOutput" name="programmingLanguage">
-                                <option value="Python!!">Python</option>
-                                <option value="not python">Ruby</option>
-                                <option value="not python">Cobol</option>
-                                <option value="not python">Pascal</option>
-                                <option value="not python">Basic</option>
-                                <option value="not python">C#</option>
-                                <option value="not python">J++</option>
-                                <option value="not python">Maple</option>
-                            </select>
-                        </div><br>
-                        <div class="formBlock">
-                            <h4>Comment: (optional)</h4>
-                        </div><br>
-                        <div >
-                            <input type="text" name="ninjaComment" class="commentBox">
-                        </div><br>
-                        <button type="submit" formaction="{% url 'result' %}" formmethod="post" name="submitForm">Submit</button>
+<!-- ======================================================================= -->
+                <h4>Your Gold: {{ session.gold }}</h4><br>
+                <div class="locationBox">
+                    <p>Farm</p>
+                    <form action="/process_money" method="post">
+                        <input type="hidden" name="building" value="farm" />
+                        <input type="submit" value="Find Gold">
                     </form>
                 </div>
+                <div class="locationBox">
+                    <p>Cave</p>
+                    <form action="/process_money" method="post">
+                        <input type="hidden" name="building" value="cave" />
+                        <input type="submit" value="Find Gold">
+                    </form>
+                </div>
+                <div class="locationBox">
+                    <p>House</p>
+                    <form action="/process_money" method="post">
+                        <input type="hidden" name="building" value="house" />
+                        <input type="submit" value="Find Gold">
+                    </form>
+                </div>
+                <div class="locationBox">
+                    <p>Casino</p>
+                    <form action="/process_money" method="post">
+                        <input type="hidden" name="building" value="casino" />
+                        <input type="submit" value="Find Gold">
+                    </form>
+                </div>
+                <h4>Activities:</h4>
+                <div class="activitiesBox">
+                    <ul>
+                        {% for activity in session.activities %}
+                            <li>{{ session.activity }}</li>
+                        {% endfor %}
+                    </ul>
+                </div>
+<!-- ======================================================================= -->
             </div>
         </div>
     </body>

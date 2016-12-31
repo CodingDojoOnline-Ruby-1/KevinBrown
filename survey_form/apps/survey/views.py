@@ -16,8 +16,3 @@ def index(request):
     except:
         request.session['counter'] = 1
     return render(request, 'index.html')
-
-
-# def index(request):
-#     request.session['counter'] = 0
-#     return redirect('input')

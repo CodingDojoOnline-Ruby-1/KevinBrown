@@ -4,151 +4,82 @@ body{
 
 #wrapper{
     width: 800px;
-    height: 600px;
+    height: 1000px;
     padding: 20px;
     background-color: blue;
 
 }
 #dataBox{
     width: auto;
-    height: 520px;
+    align: center;
+    height: 920px;
     padding: 40px;
     color: lime;
     background-color: black;
-    border: 1px solid blue;
+    border: 1px solid lime;
 }
-    #dataBox h1 {
-        text-decoration: underline;
-        margin: 20px 0px 0px;
-        text-align: center;
+    #dataBox img {
+        width: 620px;
+        height: auto;
+        margin-top: 20px;
+        margin-left: 50px;
+        height: auto;
+        padding: 0px;
+        border: 2px solid lime;
     }
-    #dataBox button {
+
+    #dataBox form {
+        width: auto;
+        height: 30px;
+        /*color: white;*/
+        text-align: center;
+
+    }
+    #dataBox button{
+        display: inline-block;
+        background-color: indigo;
         margin: 15px;
         height: 30px;
         width: 80px;
         color: lime;
         font-size: 12px;
         font-weight: bold;
-        background-color: #24272E;
-        border: 1px solid blue;
+        border: 2px solid blue;
         border-radius: .5em;
-        float: right;
+        float:none;
+        margin: 0px 15px
+    }
+    .locationBox{
+        background-color: green;
+        color: yellow;
+        padding: 40px;
+        font-size: 18px;
+        text-align: center;
+        display: inline-block;
+        border: 2px solid black;
+        height: 180px;
+        width: 180px;
+        margin: 15px;
+        padding: 10px;
+    }
+    .locationBox p{
+        margin: 40px;
     }
 
-    .thankYouBoxIndex{
-        width: auto;
-        text-align: center;
-        height: 40px;
-        padding: 20px;
-        font-size: 12px;
-        font-weight: normal;
+    .locationBox input{
+        background-color: gold;
         color: black;
-        background-color: black;
-        border: 1px solid black ;
-    }
-
-    .thankYouBoxResult{
-        width: auto;
-        vertical-align: middle;
-        text-align: center;
-        padding 0px;
-        height: 40px;
-        padding: 20px;
+        font-weight: bold;
         font-size: 12px;
-        font-weight: normal;
-        border-radius: .5em;
-        color: lime;
-        background-color: indigo;
-        border: 1px solid blue;
+        align-self: center;
+        text-align: center;
+        vertical-align: top;
     }
-        .thankYouBoxResult p{
-            margin: 0px;
-        }
 
-
-    .formBlock{
-        height: 22px;
-        width: auto;
-        padding: 0px;
-        background-color: black;
-    }
-        .formBlock h1, h4 {
-            display: inline-block;
-            vertical-align: middle;;
-            font-weight: lighter;;
-            margin: 0px;
-        }
-        .formBlock input {
-            float: right;
-            text-align: left;
-            vertical-align: middle;;
-            width: 100px;
-            height: 22px;
-            display: inline-block;
-            margin: 0px;
-            padding: 0px 10px;
-            border-radius: .5em;
-            color: lime;
-            border: 1px solid blue;
-            background-color: #24272E;
-        }
-        .formBlock select {
-            float: : right;
-            text-align: center;
-            vertical-align: middle;;
-            width: 120px;
-            height: 22px;
-            display: inline-block;
-            margin: 0px;
-            padding: 0px;
-            color: lime;
-            border: 1px solid blue;
-            background-color: #24272E;
-        }
-        /*.dataOut {
-            display: inline-block;
-            vertical-align: top;
-            float: right;
-            margin: 0px;
-            text-align: right;
-            outline: 1px solid blue;
-        }*/
-        .formBlock div {
-            float: right;
-            text-align: center;
-            vertical-align: top;
-            width: 120px;
-            height: 20px;
-            display: inline-block;
-            margin: 0px;
-            padding: 0px;
-            color: lime;
-            border: 1px solid blue;
-            background-color: #24272E;
-        }
-        .formBlockInputOutput {
-            float: right;
-            text-align: left;
-            vertical-align: top;
-            border-radius: .3em;
-            width: auto;
-            height: 20px;
-            display: inline-block;
-            margin: 0px;
-            padding: 0px;
-            color: lime;
-            border: 1px solid blue;
-            background-color: #24272E;
-        }
-
-    .commentBox {
-        height: 80px;
-        width: 720px;
-        color: lime;
-        text-align: top;
-        text-indent: 10px;
-        text-align: left;
-        border: 1px solid blue;
-        border-radius: .5em;
-        background-color: #24272E;
+    .activitiesBox{
+        width: 940px;
+        height: 400px;
+        background-color: white;
+        color: black;
+        overflow: scroll;
     }
