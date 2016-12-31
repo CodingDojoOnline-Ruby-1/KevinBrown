@@ -9,11 +9,19 @@
     </head>
     <body>
         <div id="wrapper">
-            <div id="dataBox" color = "blue">
+            <div id="dataBox" background-color=blue>
 <!-- ======================================================================= -->
-                <div class="borderBox">
-                    <img src="img/notapril.jpg" />
-                </div>
+                <form class="buttonForm" action="index.html" method="post">
+                    <button type="submit" name="black" formaction="{% url 'index.html' %}" background-color="black">Index</button>
+                    <button type="submit" name="blue" formaction="{% url 'blue.html' %}" color=blue>Blue</button>
+                    <button type="submit" name="orange" formaction="{% url 'orange.html' %}" buttonface=orange>Orange</button>
+                    <button type="submit" name="red" formaction="{% url 'red.html' %}"  background-color=red>Red</button>
+                    <button type="submit" name="purple" formaction="{% url 'purple.html' %}"  background-color="purple">Purple</button>
+                </form>
+
+                <!-- <div class="borderBox"> -->
+                    <img src="{% static 'img/notapril.jpg' %}" />
+                <!-- </div> -->
 <!-- ======================================================================= -->
             </div>
         </div>
