@@ -16,6 +16,12 @@ class Mammal
         self
     end #breathe-method
 
+    def display_health
+        puts "My current health is #{@health}."
+        self
+    end #display_health method
+    
+
 end #Mammal Class
 
 puts 'I am in the mammal file'

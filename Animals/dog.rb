@@ -29,12 +29,7 @@ class Dog < Mammal #inherits from the Mammal class
         self
     end #run
 
-    def display_health
-        puts "My current health is #{@health}."
-        self
-    end #display_health method
-
-
+    
 end #Dog class
 
 phydeaux = Dog.new
