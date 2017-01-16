@@ -1,3 +1,0 @@
-put "Hello"
-
-"Chunky" << "Bacon"
