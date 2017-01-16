@@ -1,3 +1,7 @@
+# File 2 of the 'Animals' Assignment
+
+require_relative 'mammal'
+
 class Cat < Mammal #inherits from the Mammal class
     def jerk
         puts 'scratching you...'
@@ -15,4 +19,3 @@ chloe.speak # prints 'Meow'
 chloe.breathe # can access the Mammal methods as well, prints 'Inhale and exhale'
 
 puts 'I am in the cat file'
-require_relative 'mammal'
