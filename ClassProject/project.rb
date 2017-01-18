@@ -27,6 +27,7 @@ class Project
     end #add_to_team
 
     def who_is
+        puts "Team for #{self} is:"
         @project_team.each {|name| puts name}
     end #who_is
 

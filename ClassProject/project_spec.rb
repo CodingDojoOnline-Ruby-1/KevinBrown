@@ -38,8 +38,8 @@ RSpec.describe Project do
         project1 = Project.new('Project 1', 'description 1')
         project2 = Project.new('Project 2', 'description 2')
         #if we call elevator_pitch method we should expect to get that project name and description back
-        expect(project1.elevator_pitch).to eq("My project is called Project 1. It is description 1.")
-        expect(project2.elevator_pitch).to eq("My project is called Project 2. It is description 2.")
+        expect(project1.elevator_pitch).to stoutput("My project is called Project 1. It is description 1."^)
+        expect(project2.elevator_pitch).to stoutput("My project is called Project 2. It is description 2."^)
     end #it elevator_pitch method
     #========== Adding my code below to test the new method ==========================
     # it 'has a method for adding one or more names to a project_team' do
