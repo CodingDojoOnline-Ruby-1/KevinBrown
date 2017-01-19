@@ -34,14 +34,13 @@ class Project
 end #Project class
 
 # ==============================================================================
-# In TDD project testing, this section is no longer needed
+# With _spec testing; this section is no longer needed to test output.
 # ==============================================================================
 # project1 = Project.new("Project 1", "Description 1")
 #
 # puts project1.name #prints out Project 1
 # project1.elevator_pitch #prints out 'Project 1, Description 1"
 # ==============================================================================
-
 # project1 = Project.new('Project 1', 'description 1')
 # project2 = Project.new('Project 2', 'description 2')
 # project1.elevator_pitch

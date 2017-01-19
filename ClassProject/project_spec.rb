@@ -14,6 +14,8 @@
 
 #we are going to have to include our Project class in our spec file
 require_relative 'project'
+# require 'active_support/core_ext/kernel/reporting'
+# active_support/reporting is no longer required to test output. 
 
 #now we can start Rspec
 #this line enacts the Rspec library and calls the describe method that takes in the class Project, when doing so it expects to do something
@@ -27,30 +29,22 @@ RSpec.describe Project do
         # we should be able to run that code, now lets make sure its changed.
         # we run the expect method on our projects name and expect our project name to now equal the value of Changed Name, this returns true or false
         expect(project.name).to eq("Changed Name")
-    end #do it
-end #do describe
+    end #do has getter
 
-RSpec.describe Project do
-    # ...
     # building off our previous example lets add a test to make sure our method returns the correct value
-    it 'has a method elevator_pitch to explain name and description' do
-        #lets create two new projects
-        project1 = Project.new('Project 1', 'description 1')
-        project2 = Project.new('Project 2', 'description 2')
-        #if we call elevator_pitch method we should expect to get that project name and description back
-        expect(project1.elevator_pitch).to stoutput("My project is called Project 1. It is description 1."^)
-        expect(project2.elevator_pitch).to stoutput("My project is called Project 2. It is description 2."^)
-    end #it elevator_pitch method
-    #========== Adding my code below to test the new method ==========================
-    # it 'has a method for adding one or more names to a project_team' do
-    #     # Adding Team Members
-    #     project1.add_to_team('Kevin')
-    #     project2.add_to_team(['Vishnu', 'Valentyna', 'Todd'])
-    #     # Checking Team Members
-    #     expect(@project_team).to eq(['Kevin'])
-    #     expect(@project_team).to eq(['Vishnu', 'Valentyna', 'Todd'])
-    # end #it add_to_team method
+    #lets create two new projects
+    project1 = Project.new('Project 1', 'description 1')
+    project2 = Project.new('Project 2', 'description 2')
 
-#     puts "Your project 1 team is: #{project1.project_team}"
-#     puts "Your project 2 team is: #{project2.project_team}"
-end #describe
+    #if we call elevator_pitch method we should expect to get that project name and description back
+    it 'Project1 has a method elevator_pitch to explain name and description' do #Testing Project1
+        STDOUT.should_receive(:puts).with('My project is called Project 1. It is description 1.')
+        project1.elevator_pitch
+    end
+
+    it 'Project2 has a method elevator_pitch to explain name and description' do #Testing Project2
+        STDOUT.should_receive(:puts).with('My project is called Project 2. It is description 2.')
+        project2.elevator_pitch
+    end
+
+end #describe - Project

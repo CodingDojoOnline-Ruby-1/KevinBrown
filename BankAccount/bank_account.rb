@@ -45,6 +45,7 @@ class BankAccount
 
     def show_account_id
         puts "Your account number is #{@account_number}."
+    end #show_account_id
 
     def balance
         puts "Your Balance is #{self.balance}."
