@@ -31,69 +31,131 @@
 #  A user should not be able to set any attributes from the BankAccount class
 # ==============================================================================
 
-
 class BankAccount
-    attr_accessor :account_number
-    @total_accounts = 0
+    @@total_accounts = 0
+
+    #DO NOT USE attr_accessor
+    #DO NOT ALLOW DIRECT ACCESS TO ACCOUTNS
 
     def initialize
-        @account_number = generate_account_number
-        @total_money = 0
-        @interest_rate = 1%
+        @account_number = 12345
+        @balance_total = 0
+        @interest_rate = 0.0025 #per month or 3% per year.
+        @balance_savings = 0
+        @balance_checking = 0
         @@total_accounts += 1
+        puts "Your account, #{self}, has been created."
     end #initialize
+
+    # ==========================================================================
+    # Account Information Functions ============================================
 
     def show_account_id
         puts "Your account number is #{@account_number}."
+        return account_number self #return account number, but allow chaining
     end #show_account_id
 
-    def balance
-        puts "Your Balance is #{self.balance}."
-        self
-    end #balance
 
-    def deposit funds
-        self.balance += funds
-        @total_money += funds
-        self
-    end #deposit
+    def balance_checking
+        puts "Your Balance is #{@balance_checking}."
+        @balance_checking
+    end #balance_checking
 
-    def withdraw funds
-        if self.balance > funds
-            self.balance -= funds
-            @total_money -= funds
-            return self
-        elsif
-            puts "I am sorry #{funds} exceeds your total balance of #{self.balance}."
-        end #if
-        return self
-    end #withdraw
+
+    def balance_savings
+        puts "Your Balance is #{@balance_savings}."
+        @balance_savings
+    end #balance_savings
 
     def account_information
         puts "Account Number: #{@account_number}"
-        puts "Total Money: #{@total_money}"
-        puts "Checking Balance: #{checking.balance}"
-        puts "Savings Balance: #{savings.balance}"
+        puts "Total Money: #{@balance_total}"
+        puts "Checking Balance: #{@balance_checking}"
+        puts "Savings Balance: #{@balance_savings}"
         puts "Interest Rate: #{@interest_rate}"
         self
     end #account_information
 
+    # Account Information Functions ============================================
+    # ==========================================================================
+    # Account Deposit Functions ================================================
+
+    def deposit_checking funds
+        @balance_checking += funds
+        @balance_total += funds
+        puts "#{funds} has been deposited.  Your new balance is #{@balance_checking}"
+        self
+    end #deposit_checking
+
+
+    def deposit_savings funds
+        @balance_savings += funds
+        @balance_total += funds
+        puts "#{funds} has been deposited.  Your new balance is #{@balance_savings}"
+        self
+    end #deposit_savings
+
+    # Account Deposit Functions ================================================
+    # ==========================================================================
+    # Account Withdrawal Functions =============================================
+
+    def fraud
+        if !(@balance_total == @balance_checking + @balance_savings) then
+            puts "I am sorry there is a problem with your account."
+            @balance_checking = "#{@balance_checking}-frozen"
+            return true
+        else
+            return false
+        end #if
+    end #fraud
+
+
+    def withdraw_checking funds
+        if fraud(self) then
+            puts "Your acount has been frozen."
+            return nil #do not allow futher activity
+        elsif balance_checking >= funds then
+            balance_checking -= funds
+            @balance_total -= funds
+            puts "#{funds} has been withdrawn.  Your new balance is #{@balance_checking}"
+            self #do allow chaining in an allowable withdraw situation
+        else
+            puts "I am sorry #{funds} exceeds your total balance of #{@balance_checking}."
+            return balance_checking #don't allow chaining in an over-balance situation
+        end #if-fraud, process, or exceeds
+    end #withdraw_checking
+
+
+    def withdraw_savings funds
+        if fraud(self) then #Checking for fraud
+            puts "Your acount has been frozen."
+            return nil
+        elsif @balance_savings >= funds #Will this overdraw the account?
+            @balance_savings -= funds
+            @balance_total -= funds
+            puts "#{funds} has been withdrawn.  Your new balance is #{@balance_savings}"
+            self #do allow chaining in an allowable withdraw situation
+        else
+            puts "I am sorry #{funds} exceeds your total balance of #{@balance_savings}." #withdraw fail.
+            return @balance_savings #don't allow chaining in an over-balance situation
+        end #if-fraud, process, or exceeds
+    end #withdraw_savings
+
+    # Account Deposit Functions ================================================
+    # ==========================================================================
+    # Account Transfer Functions ===============================================
+
+    def transfer_to_savings funds
+    end
+
+    def transfer_to_checking funds
+    end
+
+    # Account Transfer Functions ===============================================
+    # ==========================================================================
+
 end #BankAccount class
 
-class Savings < BankAccount
-
-    def initialize
-        @balance = 0
-    end #initialize
-
-
-end #Savings class
-
-class Checking < BankAccount
-
-    def initialize
-        @balance = 0
-    end #initialize
-
-
-end #Checking class
+Todds_Account = BankAccount.new
+Todds_Account.deposit_checking(12.53) #paycheck from coding dojo
+Todds_Account.transfer_to_savings(1.00)
