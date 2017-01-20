@@ -37,21 +37,14 @@
 class BankAccount
     @@total_accounts = 0
 
+    attr_reader :account_number
     #DO NOT USE attr_accessor
     #DO NOT ALLOW DIRECT ACCESS TO ACCOUTNS
 
-    def initialize
-        @account_number = 12345
-        @balance_total = 0
-        @interest_rate = 0.0025 #per month or 3% per year.
-        @balance_savings = 0
-        @balance_checking = 0
-        @@total_accounts += 1
-        puts "Your account, #{self}, has been created."
-    end #initialize
-
     # ==========================================================================
-    # Account Information Functions ============================================
+    # Beginning of Class BankAccount Methods ===================================
+    # ==========================================================================
+    # Account Information Methods ==============================================
 
     def show_account_id
         puts "Your account number is #{@account_number}."
@@ -79,9 +72,9 @@ class BankAccount
         self
     end #account_information
 
-    # Account Information Functions ============================================
+    # Account Information Methods ==============================================
     # ==========================================================================
-    # Account Deposit Functions ================================================
+    # Account Deposit Methods ==================================================
 
     def deposit_checking funds
         @balance_checking += funds
@@ -98,9 +91,9 @@ class BankAccount
         self
     end #deposit_savings
 
-    # Account Deposit Functions ================================================
+    # Account Deposit Methods ==================================================
     # ==========================================================================
-    # Account Withdrawal Functions =============================================
+    # Account Withdrawal Methods ===============================================
 
     def fraud
         if !(@balance_total == @balance_checking + @balance_savings) then
@@ -122,9 +115,9 @@ class BankAccount
             @balance_total -= funds
             puts "#{funds} has been withdrawn.  Your new balance is #{@balance_checking}"
             self #do allow chaining in an allowable withdraw situation
-        else
-            puts "I am sorry #{funds} exceeds your total balance of #{@balance_checking}." #withdraw fail.
-            return balance_checking #don't allow chaining in an over-balance situation
+        else #withdraw fail.
+            puts "I am sorry #{funds} exceeds your total balance of #{@balance_checking}."
+            return @balance_checking #don't allow chaining in an over-balance situation
         end #if-fraud, process, or exceeds
     end #withdraw_checking
 
@@ -138,15 +131,15 @@ class BankAccount
             @balance_total -= funds
             puts "#{funds} has been withdrawn.  Your new balance is #{@balance_savings}"
             self #do allow chaining in an allowable withdraw situation
-        else
-            puts "I am sorry #{funds} exceeds your total balance of #{@balance_savings}." #withdraw fail.
+        else #withdraw fail.
+            puts "I am sorry #{funds} exceeds your total balance of #{@balance_savings}."
             return @balance_savings #don't allow chaining in an over-balance situation
         end #if-fraud, process, or exceeds
     end #withdraw_savings
 
-    # Account Deposit Functions ================================================
+    # Account Deposit Methods ==================================================
     # ==========================================================================
-    # Account Transfer Functions ===============================================
+    # Account Transfer Methods =================================================
 
     def transfer_to_savings funds
     end
@@ -154,7 +147,31 @@ class BankAccount
     def transfer_to_checking funds
     end
 
-    # Account Transfer Functions ===============================================
+    # Account Transfer Methods =================================================
+    # ==========================================================================
+    # Class Inititialization Methods ===========================================
+
+    def initialize
+        @account_number = new_account_number
+        @balance_total = 0
+        @interest_rate = 0.0025 #per month or 3% per year.
+        @balance_savings = 0
+        @balance_checking = 0
+        @@total_accounts += 1
+        puts "Your account, #{self}, has been created."
+    end #initialize
+
+    private
+    def new_account_number
+        a = rand(1..9).to_s
+        b = rand(1...1000000000).to_s
+        c = a+b
+        puts c
+        c.to_i
+        return c
+    end
+
+    # Class Inititialization Methods ===========================================
     # ==========================================================================
 
 end #BankAccount class
