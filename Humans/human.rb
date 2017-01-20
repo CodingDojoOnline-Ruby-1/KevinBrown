@@ -7,7 +7,6 @@
 #  Now lets add a new method called attack, which when invoked, should attack
 #  another object (i.e., decrease its health) if the object it is attacking
 #  inherits from the Human class.
-#  Hint: you can check ancestors of a object by using .class.ancestors
 # ==============================================================================
 
 class Human
