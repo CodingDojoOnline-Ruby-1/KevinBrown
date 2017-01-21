@@ -39,11 +39,15 @@ require_relative 'bank_account'
 
 RSpec.describe BankAccount do
     before 'attribute tests' do
+        # todds_account = BankAccount.new
+        # todds_account.deposit_checking(12.53)
+        # todds_account.transfer_to_savings(1.00)
         # Account1 = BankAccount.new
         # Account2 = BankAccount.new
         # Account3 = BankAccount.new
         # Account4 = BankAccount.new
     end #before
+
     describe 'attributes' do
 
         # ==============================================================================
@@ -56,13 +60,12 @@ RSpec.describe BankAccount do
             Account3 = BankAccount.new
             Account4 = BankAccount.new
 
-            expect(Account1.account_number).not_to eql(Account2.account_number)
+            expect(Account1.account_number).not_to eql(Account2.account_number)  # Always returns failed test <=======================|||||
             expect(Account1.account_number).not_to eql(Account3.account_number)
             expect(Account1.account_number).not_to eql(Account4.account_number)
             expect(Account2.account_number).not_to eql(Account3.account_number)
             expect(Account2.account_number).not_to eql(Account4.account_number)
             expect(Account3.account_number).not_to eql(Account4.account_number)
-
         end
 
         it "should use a private method to generate the accont number" do
@@ -73,21 +76,32 @@ RSpec.describe BankAccount do
         # ==============================================================================
         # BankAccount should have a method that returns the user's checking account balance
         # ==============================================================================
-        it "should describe attribute here" do
+        it "should have a function that returns the users checking account balance" do
+            todds_account = BankAccount.new
+            todds_account.deposit_checking(12.53)
+            todds_account.transfer_to_savings(1.00)
+            expect(todds_account.checking_balance_request).to eql(11.53)
         end
-
         # ==============================================================================
         # BankAccount should have a method that returns the user's saving account balance
         # ==============================================================================
         it "should describe attribute here" do
+            todds_account = BankAccount.new
+            todds_account.deposit_checking(12.53)
+            todds_account.transfer_to_savings(1.00)
+            expect(todds_account.savings_balance_request).to eql(1.00)
         end
 
         # ==============================================================================
         # BankAccount should allow a user to deposit money into either their checking
         # or saving account
         # ==============================================================================
-        it "should describe attribute here" do
-
+        it "should allow user to deposit to either checking or savings" do
+            account = BankAccount.new
+            expect{account.deposit_savings(2.22)}.not_to raise_exception
+            expect{account.deposit_checking(3.33)}.not_to raise_exception
+            expect(account.savings_balance_request).to eql(2.22) # how to check balance directly? <============================|||||
+            expect(account.checking_balance_request).to eql(3.33)
         end
 
         # ==============================================================================
@@ -95,25 +109,46 @@ RSpec.describe BankAccount do
         # return an error if there are insufficient funds
         # ==============================================================================
         it "should describe attribute here" do
+            todds_account = BankAccount.new
+            todds_account.deposit_checking(12.53)
+            todds_account.transfer_to_savings(1.00)
+            expect{todds_account.withdraw_checking(5.00)}.not_to raise_exception
+            expect(todds_account.checking_balance_request).to eql(6.53)
+            expect(todds_account.withdraw_checking(20.00)).to eql("error, insufficient funds")
+            expect(todds_account.checking_balance_request).to eql(6.53)
         end
 
         # ==============================================================================
         # BankAccount should allow the user to view the total amount of money they have
         # at the bank
         # ==============================================================================
-        it "should describe attribute here" do
+        it "should describe attribute here" do   # check on how to test this <==================================================|||||
         end
 
         # ==============================================================================
         # BankAccount should track how many accounts the bank currently has
-        it "should describe attribute here" do
+        # ==============================================================================
+        it "should track to how many bank accounts the bank currently has" do
+            todds_account = BankAccount.new
+            todds_account.deposit_checking(12.53)
+            todds_account.transfer_to_savings(1.00)
+            Account1 = BankAccount.new
+            Account2 = BankAccount.new
+            Account3 = BankAccount.new
+            Account4 = BankAccount.new
+            expect(@@total_accounts==5).to be true  ## Always returns failed test <==============================================|||||
         end
 
         # ==============================================================================
         # BankAccount should have a private attribute called interest rate that is only
         # displayed when the user calls the method account_information
         # ==============================================================================
-        it "should describe attribute here" do
+        it "should have private attribute interest_rate" do   # check on how to make an attribute private <=======================|||||
+
+        end
+
+        it "should be displayed when the user calls method account_information" do # How to test this  <==========================|||||
+
         end
 
         # ==============================================================================
@@ -121,19 +156,18 @@ RSpec.describe BankAccount do
         # users account number, total money, checking account balance, saving account
         # balance and interest rate
         # ==============================================================================
-        it "should describe attribute here" do
+        it "should describe attribute here" do  # How to test this  <=============================================================|||||
         end
 
         # ==============================================================================
         # A user should not be able to set any attributes from the BankAccount class
         # ==============================================================================
-        it "should describe attribute here" do
+        it "should not allow the user to set attributes outside the BankAccount class" do
+            todds_account = BankAccount.new
+            todds_account.deposit_checking(12.53)
+            todds_account.transfer_to_savings(1.00)
+            expect{todds_account.balance_savings = 1000000}.to raise_exception(NoMethodError)
         end
 
-        # ==============================================================================
-        # Additional testing for the transfer method I have added.
-        # ==============================================================================
-        it "should describe attribute here" do
-        end
     end
 end

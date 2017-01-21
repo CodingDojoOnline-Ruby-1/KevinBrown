@@ -37,8 +37,7 @@
 class BankAccount
     @@total_accounts = 0
 
-    attr_reader :account_number
-    #DO NOT USE attr_accessor
+    #DO NOT USE attr_accessor except while testing
     #DO NOT ALLOW DIRECT ACCESS TO ACCOUTNS
 
     # ==========================================================================
@@ -46,22 +45,23 @@ class BankAccount
     # ==========================================================================
     # Account Information Methods ==============================================
 
-    def show_account_id
+    def account_id_request
         puts "Your account number is #{@account_number}."
         return account_number self #return account number, but allow chaining
-    end #show_account_id
+    end #account_id_request
 
 
-    def balance_checking
+    def checking_balance_request
         puts "Your Balance is #{@balance_checking}."
         @balance_checking
-    end #balance_checking
+    end #checking_balance_request
 
 
-    def balance_savings
+    def savings_balance_request
         puts "Your Balance is #{@balance_savings}."
         @balance_savings
-    end #balance_savings
+    end #savings_balance_request
+
 
     def account_information
         puts "Account Number: #{@account_number}"
@@ -79,6 +79,7 @@ class BankAccount
     def deposit_checking funds
         @balance_checking += funds
         @balance_total += funds
+        rebalance
         puts "#{funds} has been deposited.  Your new balance is #{@balance_checking}"
         self
     end #deposit_checking
@@ -87,6 +88,7 @@ class BankAccount
     def deposit_savings funds
         @balance_savings += funds
         @balance_total += funds
+        rebalance
         puts "#{funds} has been deposited.  Your new balance is #{@balance_savings}"
         self
     end #deposit_savings
@@ -98,7 +100,8 @@ class BankAccount
     def fraud
         if !(@balance_total == @balance_checking + @balance_savings) then
             puts "I am sorry there is a problem with your account."
-            @balance_checking = "#{@balance_checking}-frozen"
+            @balance_checking = "#{@balance_checking}-frozen" #converts to string
+            @balance_savings = "#{@balance_savings}-frozen" #converts to string
             return true
         else
             return false
@@ -107,17 +110,18 @@ class BankAccount
 
 
     def withdraw_checking funds
-        if fraud(self) then
+        if fraud then
             puts "Your acount has been frozen."
             return nil #do not allow futher activity
-        elsif balance_checking >= funds then #Will this overdraw the account?
-            balance_checking -= funds
+        elsif @balance_checking >= funds then #verify no overdraw
+            @balance_checking -= funds
             @balance_total -= funds
+            rebalance
             puts "#{funds} has been withdrawn.  Your new balance is #{@balance_checking}"
             self #do allow chaining in an allowable withdraw situation
         else #withdraw fail.
             puts "I am sorry #{funds} exceeds your total balance of #{@balance_checking}."
-            return @balance_checking #don't allow chaining in an over-balance situation
+            return "error, insufficient funds" #don't allow chaining in an over-balance situation
         end #if-fraud, process, or exceeds
     end #withdraw_checking
 
@@ -126,14 +130,15 @@ class BankAccount
         if fraud(self) then #Checking for fraud
             puts "Your acount has been frozen."
             return nil #do not allow futher activity
-        elsif @balance_savings >= funds then #Will this overdraw the account?
+        elsif @balance_savings >= funds then #verify no overdraw
             @balance_savings -= funds
             @balance_total -= funds
+            rebalance
             puts "#{funds} has been withdrawn.  Your new balance is #{@balance_savings}"
             self #do allow chaining in an allowable withdraw situation
         else #withdraw fail.
             puts "I am sorry #{funds} exceeds your total balance of #{@balance_savings}."
-            return @balance_savings #don't allow chaining in an over-balance situation
+            return "error, insufficient funds" #don't allow chaining in an over-balance situation
         end #if-fraud, process, or exceeds
     end #withdraw_savings
 
@@ -142,10 +147,15 @@ class BankAccount
     # Account Transfer Methods =================================================
 
     def transfer_to_savings funds
-    end
+        withdraw_checking(funds).deposit_savings(funds)
+        return nil #No chaining after this method --subject to change--
+    end #transfer_to_savings
+
 
     def transfer_to_checking funds
-    end
+        withdraw_savings(funds).deposit_checking(funds)
+        return nil #No chaining after this method --subject to change--
+    end #transfer_to_checking
 
     # Account Transfer Methods =================================================
     # ==========================================================================
@@ -161,21 +171,30 @@ class BankAccount
         puts "Your account, #{self}, has been created."
     end #initialize
 
+
     private
     def new_account_number
         a = rand(1..9).to_s
         b = rand(1...1000000000).to_s
         c = a+b
-        puts c
-        c.to_i
         return c
+    end
+
+
+    def rebalance
+        @balance_total = @balance_total.round(2)
+        @balance_savings = @balance_savings.round(2)
+        @balance_checking = @balance_checking.round(2)
+        return nil
     end
 
     # Class Inititialization Methods ===========================================
     # ==========================================================================
+    # Ending of Class BankAccount Methods ======================================
+    # ==========================================================================
 
 end #BankAccount class
 
-Todds_Account = BankAccount.new
-Todds_Account.deposit_checking(12.53) #paycheck from coding dojo
-Todds_Account.transfer_to_savings(1.00)
+# todds_account = BankAccount.new
+# todds_account.deposit_checking(12.53) #paycheck from coding dojo
+# todds_account.transfer_to_savings(1.00)
