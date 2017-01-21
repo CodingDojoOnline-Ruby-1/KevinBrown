@@ -66,8 +66,6 @@ RSpec.describe BankAccount do
         end
 
         it "should use a private method to generate the accont number" do
-            # How do you test for a private method?
-            #Account1 = BankAccount.new
             expect { Account1.new_account_number }.to raise_exception(NoMethodError)
         end
 
