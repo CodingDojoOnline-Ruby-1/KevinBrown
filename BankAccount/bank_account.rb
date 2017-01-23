@@ -37,6 +37,8 @@
 class BankAccount
     @@total_accounts = 0
 
+    attr_reader :account_number, :savings_balance_request, :checking_balance_request, :balance_total
+
     #DO NOT USE attr_accessor except while testing
     #DO NOT ALLOW DIRECT ACCESS TO ACCOUTNS
 
@@ -44,6 +46,10 @@ class BankAccount
     # Beginning of Class BankAccount Methods ===================================
     # ==========================================================================
     # Account Information Methods ==============================================
+
+    def self.accounts_tracker
+        @@total_accounts
+    end
 
     def account_id_request
         puts "Your account number is #{@account_number}."
@@ -168,7 +174,7 @@ class BankAccount
         @balance_savings = 0
         @balance_checking = 0
         @@total_accounts += 1
-        puts "Your account, #{self}, has been created."
+        puts "Your account has been created."
     end #initialize
 
 
@@ -195,6 +201,4 @@ class BankAccount
 
 end #BankAccount class
 
-# todds_account = BankAccount.new
-# todds_account.deposit_checking(12.53) #paycheck from coding dojo
-# todds_account.transfer_to_savings(1.00)
+todds_account = BankAccount.new

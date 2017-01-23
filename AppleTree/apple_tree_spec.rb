@@ -20,37 +20,42 @@ require_relative 'appletree'
 RSpec.describe AppleTree do
   describe 'attributes' do
     before do
-      @appleTree = AppleTree.new
-      @appleTree.height = 1
-      @appleTree.age = 1
+      apple_tree1 = AppleTree.new
     end
     #===============================================================================
     # 1 Apple Tree should have a height and age
     #===============================================================================
     it "is expected to have height, and age attributes" do
-      expect(@appleTree).to have_attributes(:height => 1)
-      expect(@appleTree).to have_attributes(:age => 1)
+      expect(apple_tree1).to have_attributes(:height => 0)
+      expect(apple_tree1).to have_attributes(:age => 0)
     end
 
     #===============================================================================
     # 2 Apple Tree should have a count of how many apples is on it
     #===============================================================================
-    it "should" do
-
+    it "should have a count of how many apples are on it" do
+        expect(apple_tree1).to have_attributes(:apples => 0)
     end
 
     #===============================================================================
     # 3 Apple Tree should have a method called year_gone_by, which ages the tree
     #    by 1 year affecting its height
     #===============================================================================
-    it "should" do
+    it "should should have method year_gone_by which ages tree 1 year" do
+        age1 = apple_tree1.age
+        apple_tree1.year_gone_by
+        age2 = apple_tree1
+        expect(age2 == age1 + 1)
+        expect()
+    end
+    it "should should have method year_gone_by which affects height" do
 
     end
 
     #===============================================================================
     # 4 Apple Tree should not grow apples for the first three years of its life
     #===============================================================================
-    it "should" do
+    it "should not produce apples the first three years of its life" do
 
     end
 
@@ -72,16 +77,16 @@ RSpec.describe AppleTree do
   end
   describe 'behavior' do
     before do
-      @appleTree = AppleTree.new
+      apple_tree1 = AppleTree.new
     end
     it "should count how many apples are on it" do
-      @appleTree.apples.push("Red Apple")
-      expect(@appleTree.count_apples()).to eq(1)
+      apple_tree1.apples.push("Red Apple")
+      expect(apple_tree1.count_apples()).to eq(1)
     end
     it "should have a method called year_gone_by, which ages the tree by 1 year and increases height." do
-      @appleTree.year_gone_by
-      expect(@appleTree.age).to eq(1)
-      expect(@appleTree.height).to eq(1)
+      apple_tree1.year_gone_by
+      expect(apple_tree1.age).to eq(1)
+      expect(apple_tree1.height).to eq(1)
     end
   end
 end
