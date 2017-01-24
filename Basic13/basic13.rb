@@ -7,6 +7,7 @@
 # Write a program (sets of instructions) that would print all the numbers from 1 to 255.
 # ================================================================================================================
 alfred = (1..255); puts; alfred.each{|num| puts num}
+(1..255)
 # alfred = (1..255)
 # alfred.each{|num| puts num}
 
@@ -16,13 +17,16 @@ alfred = (1..255); puts; alfred.each{|num| puts num}
 #Write a program (sets of instructions) that would print all the odd numbers from 1 to 255.
 # ================================================================================================================
 aman = (0..127); puts; aman.each{|num| puts num * 2 + 1}
+(1..255).select{|num| num % 2 == 1}
+(1..255).reject{|num| num % 2 == 0}
 # aman = (0..127)
 # aman.each{|num| puts num * 2 + 1}
 
 
 # ================================================================================================================
 # Print Sum {#3}
-# Write a program that would print the numbers from 0 to 255 but this time, it would also print the sum of the numbers that have been printed so far. For example, your output should be something like this:
+# Write a program that would print the numbers from 0 to 255 but this time, it would also print the sum of the
+# numbers that have been printed so far. For example, your output should be something like this:
 # New number: 0 Sum: 0
 # New number: 1 Sum: 1
 # New Number: 2 Sum: 3
@@ -37,7 +41,8 @@ brandon = (0..255); puts; brandon.each{|num1| puts "New Number: #{num1} Sum: #{y
 
 # ================================================================================================================
 # Iterating through an array {#4}
-# Given an array X, say [1,3,5,7,9,13], write a program that would iterate through each member of the array and print each value on the screen.  Being able to loop through each member of the array is extremely important.
+# Given an array X, say [1,3,5,7,9,13], write a program that would iterate through each member of the array and
+# print each value on the screen.  Being able to loop through each member of the array is extremely important.
 # ================================================================================================================
 carissa = [1, 3, 5, 7, 9, 13]; puts; for i in 1..carissa.length; puts "Item " + (i).to_s + " is " + carissa[i-1].to_s; next i; end
 # carissa = [1, 3, 5, 7, 9, 13]
@@ -58,7 +63,9 @@ charlie = [-3, -5, -7, 0, 5, 13, -6, 4]; puts; puts "The largest Number in the a
 
 # ================================================================================================================
 # Get Average {#6}
-# Write a program that takes an array, and prints the AVERAGE of the values in the array. For example for an array [2, 10, 3], your program should print an average of 5. Again, make sure you come up with a simple base case and write instructions to solve that base case first, then test your instructions for other complicated cases. You can use a count function with this assignment.
+# Write a program that takes an array, and prints the AVERAGE of the values in the array. For example for an
+# array [2, 10, 3], your program should print an average of 5. Again, make sure you come up with a simple base
+# case and write instructions to solve that base case first, then test your instructions for other complicated cases. You can use a count function with this assignment.
 # ================================================================================================================
 francisco = [-3, -5, -7, 0, 5, 13, -6, 41, 3, 5, 7, 9, 14]; puts; sum = 0.0; francisco.each_index{|i| sum += francisco[i]}; puts "The average is #{sum/francisco.count}."
 # francisco = [-3, -5, -7, 0, 5, 13, -6, 41, 3, 5, 7, 9, 14]
@@ -85,6 +92,7 @@ y=[]; puts; for i in 0..256; if i %2 == 1 then y.push(i) end; end; puts "The arr
 # Write a program that takes an array and returns the number of values in that array whose value is greater than a given value y. For example, if array = [1, 3, 5, 7] and y = 3, after your program is run it will print 2 (since there are two values in the array that are greater than 3).
 # ================================================================================================================
 y = 3; gideon = [-3, -5, -7, 0, 5, 13, -6, 41, 3, 5, 7, 9, 14]; puts; x = gideon.sort.dup; i = gl = gideon.length - 1; while i > -1 do; if x.at(i) > y then slicer = i; end; i = i - 1; end; w = x.slice(slicer..gl); puts "The array has #{w.count} numbers greater than y = #{y}."
+
 # y = 3
 # gideon = [-3, -5, -7, 0, 5, 13, -6, 41, 3, 5, 7, 9, 14]
 # puts
@@ -106,7 +114,8 @@ y = 3; gideon = [-3, -5, -7, 0, 5, 13, -6, 41, 3, 5, 7, 9, 14]; puts; x = gideon
 
 # ================================================================================================================
 # Square the values {#9}
-# Given any array x, say [1, 5, 10, -2], create an algorithm (sets of instructions) that multiplies each value in the array by itself.  When the program is done, the array x should have values that have been squared, say [1, 25, 100, 4].
+# Given any array x, say [1, 5, 10, -2], create an algorithm (sets of instructions) that multiplies each value in
+# the array by itself.  When the program is done, the array x should have values that have been squared, say [1, 25, 100, 4].
 # ================================================================================================================
 x = [1, 5, 10, -2]; puts; puts "x is: #{x}"; i = x.length - 1; while i > -1 do temp = x.at(i); x[i] = temp * temp; i = i - 1; end; puts "x is now: #{x}"
 # x = [1, 5, 10, -2]
@@ -122,7 +131,8 @@ x = [1, 5, 10, -2]; puts; puts "x is: #{x}"; i = x.length - 1; while i > -1 do t
 
 # ================================================================================================================
 # Eliminate Negative Numbers {#10}
-# Given any array x, say [1, 5, 10, -2], create an algorithm that replaces any negative number with the value of 0.  When the program is done, x should have no negative values, say [1, 5, 10, 0].
+# Given any array x, say [1, 5, 10, -2], create an algorithm that replaces any negative number with the value of 0.
+# When the program is done, x should have no negative values, say [1, 5, 10, 0].
 # ================================================================================================================
 x = [1, 5, 10, -2]; puts; puts "x is: #{x}"; i = x.length - 1; while i > -1 do; if x[i] < 0 then x[i] = 0; end; i = i - 1; end; puts "x is now: #{x}"
 # x = [1, 5, 10, -2]
@@ -139,7 +149,8 @@ x = [1, 5, 10, -2]; puts; puts "x is: #{x}"; i = x.length - 1; while i > -1 do; 
 
 # ================================================================================================================
 # Max, Min, and Average {#11}
-# Given any array x, say [1, 5, 10, -2], create an algorithm that prints the maximum number in the array, the minimum value in the array, and the average of the values in the array.
+# Given any array x, say [1, 5, 10, -2], create an algorithm that prints the maximum number in the array, the
+# minimum value in the array, and the average of the values in the array.
 # ================================================================================================================
 x = [1, 5, 10, -2]; puts; puts "x is: #{x}"; i = x.length - 1; sum = 0.0; min = max = 0; while i > -1 do sum = sum + x[i]; if x[i] < min then min = x[i]; end; if x[i] > max then max = x[i]; end; i = i - 1; end; puts "The maximum number in x is #{max}."; puts "The mininimum number in x is #{min}."; puts "The average of the numbers in x is #{sum/x.count}.";
 # x = [1, 5, 10, -2]
@@ -165,9 +176,11 @@ x = [1, 5, 10, -2]; puts; puts "x is: #{x}"; i = x.length - 1; sum = 0.0; min = 
 
 # ================================================================================================================
 # Shifting the values in the array {#12}
-# Given any array x, say [1, 5, 10, 7, -2], create an algorithm that shifts each number by one to the front.  For example, when the program is done, an x of [1, 5, 10, 7, -2] should become [5, 10, 7, -2, 0].
+# Given any array x, say [1, 5, 10, 7, -2], create an algorithm that shifts each number by one to the front.
+# For example, when the program is done, an x of [1, 5, 10, 7, -2] should become [5, 10, 7, -2, 0].
 # ================================================================================================================
 x = [1, 5, 10, 7, -2]; puts; puts "x is: #{x}"; for i in 0...x.length do; if x[i + 1] == nil then x[i] = 0; else x[i] = x[i + 1]; end; next i; end; puts "x is now: #{x}"
+[1, 5, 10, 7, -2].slice_after(1).to_a.last.push(0)
 # x = [1, 5, 10, 7, -2]
 # puts
 # puts "x is: #{x}"
